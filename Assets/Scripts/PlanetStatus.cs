@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class PlanetStatus : MonoBehaviour
 {
-    float HumanCounter;
-    float WaterCounter;
-    float ForestCounter;
-    float AnimalCounter;
-    float AirCounter;
-    float CorruptionCounter;
+    float HumanCounter = 50;
+    float WaterCounter = 50;
+    float ForestCounter = 50;
+    float AnimalCounter = 50;
+    float AirCounter = 50;
+    float CorruptionCounter = 50;
 
     float TotalPlanetHealth;
 
@@ -28,7 +28,7 @@ public class PlanetStatus : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        CheckPlanetHealth();
     }
 
     void CheckPlanetHealth()
