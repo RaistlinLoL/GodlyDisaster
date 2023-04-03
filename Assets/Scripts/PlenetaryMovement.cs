@@ -6,6 +6,8 @@ public class PlenetaryMovement : MonoBehaviour
 {
      [SerializeField]
     private float _mouseSensitivity = 3.0f;
+    private float _keyboardSensitivity = 1.0f;
+    private bool mouseOrKeyBoard = false;
 
     private float _rotationY;
     private float _rotationX;
@@ -27,12 +29,47 @@ public class PlenetaryMovement : MonoBehaviour
 
     void Update()
     {
+        if(!mouseOrKeyBoard)
+        {
+            MouseMovement();
+        }
+        else
+        {
+            KeyBoardMovement();
+        }
+
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            mouseOrKeyBoard = !mouseOrKeyBoard;
+        }
+    }
+
+    void MouseMovement()
+    {
         float mouseX = Input.GetAxis("Mouse X") * _mouseSensitivity;
         float mouseY = -Input.GetAxis("Mouse Y") * _mouseSensitivity;
 
         _rotationY += mouseX;
         _rotationX += mouseY;
 
+        MoveCamera();
+
+        zoomInAndOut();
+    }
+
+    void KeyBoardMovement()
+    {
+        float keyboardX = -Input.GetAxis("Horizontal") * _keyboardSensitivity;
+        float keyboardY = Input.GetAxis("Vertical") * _keyboardSensitivity;
+
+        _rotationY += keyboardX;
+        _rotationX += keyboardY;
+
+        MoveCamera();
+    }
+
+    void MoveCamera()
+    {
         // Apply clamping for x rotation 
         //_rotationX = Mathf.Clamp(_rotationX, _rotationXMinMax.x, _rotationXMinMax.y);
 
@@ -44,8 +81,6 @@ public class PlenetaryMovement : MonoBehaviour
 
         // Substract forward vector of the GameObject to point its forward vector to the target
         transform.position = _target.position - transform.forward * _distanceFromTarget;
-
-        zoomInAndOut();
     }
 
     void zoomInAndOut()
