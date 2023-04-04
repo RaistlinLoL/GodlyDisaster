@@ -34,18 +34,30 @@ public class PowerSelected : MonoBehaviour
         if(Input.GetMouseButtonDown(0))
         {
             Debug.Log("Power Used");
-            GameObject createdPower;
+            GameObject newestPowerSpawned;
             if(currentpower == powers.Rain)
             {
-                createdPower = Instantiate(RainPower, MousePos.transform.position, Quaternion.identity);
+                newestPowerSpawned = Instantiate(RainPower, MousePos.transform.position, Quaternion.identity);
+            }
+            else if (currentpower == powers.Smite)
+            {
+                newestPowerSpawned = Instantiate(RainPower, MousePos.transform.position, Quaternion.identity);
+            }
+            else if (currentpower == powers.Growth)
+            {
+                newestPowerSpawned = Instantiate(RainPower, MousePos.transform.position, Quaternion.identity);
+            }
+            else if (currentpower == powers.Love)
+            {
+                newestPowerSpawned = Instantiate(RainPower, MousePos.transform.position, Quaternion.identity);
             }
             else
             {
-                createdPower = null;
+                newestPowerSpawned = null;
             }
-            createdPower.transform.LookAt(PlanetCenter.transform.position);
-            createdPower.transform.Rotate(new Vector3(createdPower.transform.rotation.x +90, 
-                createdPower.transform.rotation.y + 90, createdPower.transform.rotation.z));
+            newestPowerSpawned.transform.LookAt(PlanetCenter.transform.position);
+            newestPowerSpawned.transform.Rotate(new Vector3(newestPowerSpawned.transform.rotation.x,
+                newestPowerSpawned.transform.rotation.y, newestPowerSpawned.transform.rotation.z));
         }
     }
 
