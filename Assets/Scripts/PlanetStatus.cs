@@ -24,11 +24,11 @@ public class PlanetStatus : MonoBehaviour
     public GameObject TotalSlider;
 
 
-    List<GameObject> HumanGroups;
-    List<GameObject> WaterGroups;
-    List<GameObject> ForestGroups;
-    List<GameObject> AnimalGroups;
-    List<GameObject> AirGroups;
+    public List<GameObject> HumanGroups;
+    public List<GameObject> WaterGroups;
+    public List<GameObject> ForestGroups;
+    public List<GameObject> AnimalGroups;
+    public List<GameObject> AirGroups;
 
     
 
