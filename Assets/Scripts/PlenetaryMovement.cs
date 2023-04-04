@@ -27,6 +27,7 @@ public class PlenetaryMovement : MonoBehaviour
     [SerializeField]
     private Vector2 _rotationXMinMax = new Vector2(-40, 40);
 
+    [SerializeField]int zoomRate;
     void Update()
     {
         if(!mouseOrKeyBoard)
@@ -91,11 +92,11 @@ public class PlenetaryMovement : MonoBehaviour
         Camera cam = GetComponent<Camera>();
         if (Input.mouseScrollDelta.y > 0)
         {
-           cam.fieldOfView += 1;
+           cam.fieldOfView += zoomRate;
         }
         else if (Input.mouseScrollDelta.y < 0)
         {
-            cam.fieldOfView -= 1;
+            cam.fieldOfView -= zoomRate;
         }
        
     }
