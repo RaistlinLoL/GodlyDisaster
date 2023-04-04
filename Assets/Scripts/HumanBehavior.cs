@@ -10,16 +10,21 @@ public class HumanBehavior : MonoBehaviour
     Vector3 targetPos;
     GameObject[] targets = new GameObject[1482];
     int randTargetIndex;
+
+    Vector3 pos = Vector3.zero;
+    float timerToFindNewTarget = 0;
+    [SerializeField] int maxTimerToFindNewTarget = 3;
     void Start()
     {
        targetPos = transform.position;
+       
     }
 
     // Update is called once per frame
     void Update()
     {
         targets = GameObject.FindGameObjectsWithTag("PlanetMoment");
-        //transform.position += transform.forward * speed * Time.deltaTime;
+        
 
         if (Vector3.Distance(transform.position, targetPos) < 10)
         {
@@ -34,5 +39,23 @@ public class HumanBehavior : MonoBehaviour
     void findTarget()
     {
         transform.position = Vector3.MoveTowards(transform.position, targetPos, speed * Time.deltaTime);
+        
+
+        
+        
+        transform.LookAt( transform.forward, transform.up);
+        
+    }
+
+
+    private void OnTriggerStay(Collider other) {
+       
+        if (other.gameObject.tag == "PlanetMoment")
+        {
+        
+            randTargetIndex = Random.Range(0,targets.Length -1); 
+            targetPos = targets[randTargetIndex].transform.position;
+                     
+        }
     }
 }

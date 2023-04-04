@@ -28,8 +28,24 @@ public class PlenetaryMovement : MonoBehaviour
     private Vector2 _rotationXMinMax = new Vector2(-40, 40);
 
     [SerializeField]int zoomRate;
+
+    void Start()
+    {
+        hideCursor();
+    }
     void Update()
     {
+
+        if (Input.GetKey(KeyCode.Escape))
+        {
+
+            showCursor();
+        }
+        if (Input.GetMouseButtonUp(0))
+        {
+            hideCursor();
+        }
+        
         if(!mouseOrKeyBoard)
         {
             MouseMovement();
@@ -99,6 +115,17 @@ public class PlenetaryMovement : MonoBehaviour
             cam.fieldOfView -= zoomRate;
         }
        
+    }
+
+    void hideCursor()
+    {
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Confined;
+
+    }
+    void showCursor()
+    {
+        Cursor.visible = true;
     }
 
 }
