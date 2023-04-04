@@ -38,10 +38,14 @@ public class PlenetaryMovement : MonoBehaviour
             KeyBoardMovement();
         }
 
+        zoomInAndOut();
+
+
         if (Input.GetKeyDown(KeyCode.P))
         {
             mouseOrKeyBoard = !mouseOrKeyBoard;
         }
+
     }
 
     void MouseMovement()
@@ -54,7 +58,6 @@ public class PlenetaryMovement : MonoBehaviour
 
         MoveCamera();
 
-        zoomInAndOut();
     }
 
     void KeyBoardMovement()
