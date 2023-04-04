@@ -5,6 +5,7 @@ using UnityEngine;
 public class MousePosition : MonoBehaviour
 {
     public Camera mainCam;
+    public LayerMask PlanetLayer;
     // Start is called before the first frame update
     void Start()
     {
