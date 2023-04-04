@@ -21,7 +21,7 @@ public class HumanBehavior : MonoBehaviour
         targets = GameObject.FindGameObjectsWithTag("PlanetMoment");
         //transform.position += transform.forward * speed * Time.deltaTime;
 
-        if (Vector3.Distance(transform.position, targetPos) < 1)
+        if (Vector3.Distance(transform.position, targetPos) < 10)
         {
             randTargetIndex = Random.Range(0,targets.Length -1);
             targetPos = targets[randTargetIndex].transform.position;
