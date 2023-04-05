@@ -6,6 +6,7 @@ public class MousePosition : MonoBehaviour
 {
     public Camera mainCam;
     public LayerMask PlanetLayer;
+    public bool OnPlanet;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,10 +21,12 @@ public class MousePosition : MonoBehaviour
         {
             GetComponent<MeshRenderer>().enabled = true;
             transform.position = rayHit.point;
+            OnPlanet = true;
         }
         else
         {
             GetComponent<MeshRenderer>().enabled = false;
+            OnPlanet = false;
         }
     }
 }
