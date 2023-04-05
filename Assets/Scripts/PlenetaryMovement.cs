@@ -31,7 +31,7 @@ public class PlenetaryMovement : MonoBehaviour
 
     void Start()
     {
-        hideCursor();
+        //hideCursor();
     }
     void Update()
     {
@@ -39,11 +39,11 @@ public class PlenetaryMovement : MonoBehaviour
         if (Input.GetKey(KeyCode.Escape))
         {
 
-            showCursor();
+            //showCursor();
         }
         if (Input.GetMouseButtonUp(0))
         {
-            hideCursor();
+            //hideCursor();
         }
         
         if(!mouseOrKeyBoard)
