@@ -349,7 +349,7 @@ GameObject:
   - component: {fileID: 370303086407741620}
   m_Layer: 0
   m_Name: Chicken
-  m_TagString: Untagged
+  m_TagString: Chicken
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -436,6 +436,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 0
   maxTimerToFindNewTarget: 3
+  isHuman: 0
+  isLion: 0
+  isChicken: 0
+  isWolf: 0
 --- !u!114 &5127858957018656965
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -459,5 +463,5 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.75, y: 1.75, z: 1.72}
+  m_Size: {x: 3.18, y: 1.75, z: 5.03}
   m_Center: {x: 0, y: 0.81, z: 0.18}
