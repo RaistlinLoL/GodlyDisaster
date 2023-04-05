@@ -68,8 +68,6 @@ public class PlanetStatus : MonoBehaviour
         {
             if(s.GetComponent<Slider>().value <= .15f || s.GetComponent<Slider>().value >= .85f)
             {
-                //s.GetComponentInChildren<Image>().color = Color.red;
-                Debug.Log("ChangeColor");
                 s.transform.GetChild(0).GetComponentInChildren<Image>().color = Color.red;
             }
         }
