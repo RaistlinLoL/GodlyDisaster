@@ -8,7 +8,7 @@ public class HumanBehavior : MonoBehaviour
     [SerializeField] float speed;
     
     Vector3 targetPos;
-    PlanetTargets PT;
+    public PlanetTargets PT;
     int randTargetIndex;
 
 
@@ -16,19 +16,27 @@ public class HumanBehavior : MonoBehaviour
     float timerToFindNewTarget = 0;
     [SerializeField] int maxTimerToFindNewTarget = 3;
 
-    [SerializeField] bool isHuman;
+    /*[SerializeField] bool isHuman;
     
     [SerializeField] bool isLion;
 
     [SerializeField] bool isChicken;
-    [SerializeField] bool isWolf;
+    [SerializeField] bool isWolf;*/
+    enum CreatureType
+    {
+        Human,
+        Lion,
+        Chicken,
+        Wolf
+    }
+    [SerializeField] CreatureType whatCreature;
     
-    bool hasCoughtAnimal;
+    bool hasCaughtAnimal;
 
 
     void Start()
     {
-       targetPos = transform.position;
+        targetPos = transform.position;
         PT = GameObject.Find("PlanetTargets").GetComponent<PlanetTargets>();
     }
 
@@ -98,15 +106,15 @@ public class HumanBehavior : MonoBehaviour
     {
         if (other.gameObject.tag == "Chicken" || other.gameObject.tag == "Wolf")
         {
-           hasCoughtAnimal = true;
+           hasCaughtAnimal = true;
         }
     }
     private void OnTriggerEnter(Collider other) {
-        if (isHuman)
+        if (whatCreature == CreatureType.Human)
         {
             if (other.gameObject.tag == "Chicken" || other.gameObject.tag == "Wolf")
             {
-                huntAnimal(other.gameObject, hasCoughtAnimal);
+                huntAnimal(other.gameObject, hasCaughtAnimal);
                 print("iam hunting an animal");
             }
 
