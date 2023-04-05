@@ -37,19 +37,19 @@ public class PowerSelected : MonoBehaviour
             GameObject newestPowerSpawned;
             if(currentpower == powers.Rain)
             {
-                newestPowerSpawned = Instantiate(RainPower, MousePos.transform.position, Quaternion.identity);
+                newestPowerSpawned = Instantiate(RainPower, MousePos.transform.position , Quaternion.identity);
             }
             else if (currentpower == powers.Smite)
             {
-                newestPowerSpawned = Instantiate(RainPower, MousePos.transform.position, Quaternion.identity);
+                newestPowerSpawned = Instantiate(SmitePower, MousePos.transform.position, Quaternion.identity);
             }
             else if (currentpower == powers.Growth)
             {
-                newestPowerSpawned = Instantiate(RainPower, MousePos.transform.position, Quaternion.identity);
+                newestPowerSpawned = Instantiate(GrowthPower, MousePos.transform.position, Quaternion.identity);
             }
             else if (currentpower == powers.Love)
             {
-                newestPowerSpawned = Instantiate(RainPower, MousePos.transform.position, Quaternion.identity);
+                newestPowerSpawned = Instantiate(LovePower, MousePos.transform.position, Quaternion.identity);
             }
             else
             {
