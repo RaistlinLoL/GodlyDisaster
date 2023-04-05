@@ -11,6 +11,8 @@ TagManager:
   - PlanetMoment
   - Planet
   - Wolf
+  - Lion
+  - Human
   layers:
   - Default
   - TransparentFX

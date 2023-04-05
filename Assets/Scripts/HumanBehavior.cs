@@ -8,7 +8,7 @@ public class HumanBehavior : MonoBehaviour
     [SerializeField] float speed;
     
     Vector3 targetPos;
-    GameObject[] targets = new GameObject[1482];
+    public PlanetTargets PT;
     int randTargetIndex;
 
 
@@ -16,32 +16,40 @@ public class HumanBehavior : MonoBehaviour
     float timerToFindNewTarget = 0;
     [SerializeField] int maxTimerToFindNewTarget = 3;
 
-    [SerializeField] bool isHuman;
+    /*[SerializeField] bool isHuman;
     
     [SerializeField] bool isLion;
 
     [SerializeField] bool isChicken;
-    [SerializeField] bool isWolf;
+    [SerializeField] bool isWolf;*/
+    enum CreatureType
+    {
+        Human,
+        Lion,
+        Chicken,
+        Wolf
+    }
+    [SerializeField] CreatureType whatCreature;
     
-    bool hasCoughtAnimal;
+    bool hasCaughtAnimal;
 
 
     void Start()
     {
-       targetPos = transform.position;
+        targetPos = transform.position;
+        PT = GameObject.Find("PlanetTargets").GetComponent<PlanetTargets>();
     }
 
     // Update is called once per frame
     void Update()
     {
         //Patrolling
-        targets = GameObject.FindGameObjectsWithTag("PlanetMoment");
         //transform.position += transform.forward * speed * Time.deltaTime;
 
         if (Vector3.Distance(transform.position, targetPos) < 10)
         {
-            randTargetIndex = Random.Range(0,targets.Length -1);
-            targetPos = targets[randTargetIndex].transform.position;
+            randTargetIndex = Random.Range(0,PT.targets.Length -1);
+            targetPos = PT.targets[randTargetIndex].transform.position;
         }
 
         findTarget();
@@ -64,13 +72,13 @@ public class HumanBehavior : MonoBehaviour
         Destroy(tree);
         print("i cut down a tree");
     }
-    void huntAnimal(GameObject animal, bool hasCoughtAnimal)
+    void huntAnimal(GameObject animal, bool hasCaughtAnimal)
     {
         targetPos = animal.transform.position;
-        if (hasCoughtAnimal)
+        if (hasCaughtAnimal)
         {
             Destroy(animal);
-            hasCoughtAnimal = false;
+            hasCaughtAnimal = false;
             print("animal Has been hunted");
         }
         else
@@ -85,8 +93,8 @@ public class HumanBehavior : MonoBehaviour
         {
             if (Vector3.Distance(other.gameObject.transform.position, transform.position) < 5)
             {
-                randTargetIndex = Random.Range(0,targets.Length -1); 
-                targetPos = targets[randTargetIndex].transform.position;
+                randTargetIndex = Random.Range(0,PT.targets.Length -1); 
+                targetPos = PT.targets[randTargetIndex].transform.position;
             }
             
                      
@@ -98,15 +106,15 @@ public class HumanBehavior : MonoBehaviour
     {
         if (other.gameObject.tag == "Chicken" || other.gameObject.tag == "Wolf")
         {
-           hasCoughtAnimal = true;
+           hasCaughtAnimal = true;
         }
     }
     private void OnTriggerEnter(Collider other) {
-        if (isHuman)
+        if (whatCreature == CreatureType.Human)
         {
             if (other.gameObject.tag == "Chicken" || other.gameObject.tag == "Wolf")
             {
-                huntAnimal(other.gameObject, hasCoughtAnimal);
+                huntAnimal(other.gameObject, hasCaughtAnimal);
                 print("iam hunting an animal");
             }
 
