@@ -64,13 +64,13 @@ public class HumanBehavior : MonoBehaviour
         Destroy(tree);
         print("i cut down a tree");
     }
-    void huntAnimal(GameObject animal, bool hasCoughtAnimal)
+    void huntAnimal(GameObject animal, bool hasCaughtAnimal)
     {
         targetPos = animal.transform.position;
-        if (hasCoughtAnimal)
+        if (hasCaughtAnimal)
         {
             Destroy(animal);
-            hasCoughtAnimal = false;
+            hasCaughtAnimal = false;
             print("animal Has been hunted");
         }
         else
