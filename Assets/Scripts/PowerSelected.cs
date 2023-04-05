@@ -37,7 +37,7 @@ public class PowerSelected : MonoBehaviour
             GameObject newestPowerSpawned;
             if(currentpower == powers.Rain)
             {
-                newestPowerSpawned = Instantiate(RainPower, MousePos.transform.position, Quaternion.identity);
+                newestPowerSpawned = Instantiate(RainPower, MousePos.transform.position , Quaternion.identity);
             }
             else if (currentpower == powers.Smite)
             {
