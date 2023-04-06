@@ -37,17 +37,47 @@ public class PlanetStatus : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        AddStartingValues();
     }
 
     // Update is called once per frame
     void Update()
     {
+        RemoveNullValues();
         CheckPlanetHealth();
+    }
+
+    void AddStartingValues()
+    {
+        foreach (GameObject h in GameObject.FindGameObjectsWithTag("Human"))
+        {
+            HumanGroups.Add(h);
+        }
+        foreach (GameObject a in GameObject.FindGameObjectsWithTag("Chicken"))
+        {
+            AnimalGroups.Add(a);
+        }
+        foreach (GameObject a in GameObject.FindGameObjectsWithTag("Wolf"))
+        {
+            AnimalGroups.Add(a);
+        }
+        foreach (GameObject a in GameObject.FindGameObjectsWithTag("Lion"))
+        {
+            AnimalGroups.Add(a);
+        }
+    }
+
+    void RemoveNullValues()
+    {
+        HumanGroups.RemoveAll(x => x == null);
+        AnimalGroups.RemoveAll(x => x == null);
     }
 
     void CheckPlanetHealth()
     {
+        HumanCounter = HumanGroups.Count;
+        AnimalCounter = AnimalGroups.Count;
+
         TotalPlanetHealth = (HumanCounter + WaterCounter + ForestCounter +
             AnimalCounter + AirCounter + CorruptionCounter) / 6;
         SlidersUpdate();
