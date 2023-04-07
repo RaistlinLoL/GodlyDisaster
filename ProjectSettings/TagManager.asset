@@ -13,6 +13,7 @@ TagManager:
   - Wolf
   - Lion
   - Human
+  - PlanetRocks
   layers:
   - Default
   - TransparentFX
