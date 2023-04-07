@@ -7,9 +7,9 @@ public class PlanetStatus : MonoBehaviour
 {
     float HumanCounter = 50;
     float WaterCounter = 50;
-    float ForestCounter = 15;
+    float ForestCounter = 50;
     float AnimalCounter = 50;
-    float AirCounter = 90;
+    float AirCounter = 50;
     float CorruptionCounter = 50;
 
     float TotalPlanetHealth;
@@ -24,7 +24,6 @@ public class PlanetStatus : MonoBehaviour
     public GameObject TotalSlider;
 
     public List<GameObject> SliderList;
-
 
     public List<GameObject> HumanGroups;
     public List<GameObject> WaterGroups;
@@ -49,10 +48,19 @@ public class PlanetStatus : MonoBehaviour
 
     void AddStartingValues()
     {
+        //Humans
         foreach (GameObject h in GameObject.FindGameObjectsWithTag("Human"))
         {
             HumanGroups.Add(h);
         }
+
+        //Plants
+        foreach (GameObject t in GameObject.FindGameObjectsWithTag("PlanetMoment"))
+        {
+            ForestGroups.Add(t);
+        }
+
+        //Animals
         foreach (GameObject a in GameObject.FindGameObjectsWithTag("Chicken"))
         {
             AnimalGroups.Add(a);
@@ -70,13 +78,15 @@ public class PlanetStatus : MonoBehaviour
     void RemoveNullValues()
     {
         HumanGroups.RemoveAll(x => x == null);
+        ForestGroups.RemoveAll(x => x == null);
         AnimalGroups.RemoveAll(x => x == null);
     }
 
     void CheckPlanetHealth()
     {
-        HumanCounter = HumanGroups.Count;
-        AnimalCounter = AnimalGroups.Count;
+        HumanCounter = HumanGroups.Count * 2;
+        ForestCounter = ForestGroups.Count / 20;
+        AnimalCounter = AnimalGroups.Count * 2;
 
         TotalPlanetHealth = (HumanCounter + WaterCounter + ForestCounter +
             AnimalCounter + AirCounter + CorruptionCounter) / 6;

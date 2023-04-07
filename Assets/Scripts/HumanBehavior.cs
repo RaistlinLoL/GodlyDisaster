@@ -8,7 +8,7 @@ public class HumanBehavior : MonoBehaviour
     [SerializeField] float speed;
     
     Vector3 targetPos;
-    public PlanetTargets PT;
+    public PlanetStatus PS;
     int randTargetIndex;
 
 
@@ -37,7 +37,7 @@ public class HumanBehavior : MonoBehaviour
     void Start()
     {
         targetPos = transform.position;
-        PT = GameObject.Find("PlanetTargets").GetComponent<PlanetTargets>();
+        PS = GameObject.Find("PlanetStatus").GetComponent<PlanetStatus>();
     }
 
     // Update is called once per frame
@@ -48,8 +48,8 @@ public class HumanBehavior : MonoBehaviour
 
         if (Vector3.Distance(transform.position, targetPos) < 10)
         {
-            randTargetIndex = Random.Range(0,PT.targets.Length -1);
-            targetPos = PT.targets[randTargetIndex].transform.position;
+            randTargetIndex = Random.Range(0,PS.ForestGroups.Count -1);
+            targetPos = PS.ForestGroups[randTargetIndex].transform.position;
         }
 
         findTarget();
@@ -93,8 +93,8 @@ public class HumanBehavior : MonoBehaviour
         {
             if (Vector3.Distance(other.gameObject.transform.position, transform.position) < 5)
             {
-                randTargetIndex = Random.Range(0,PT.targets.Length -1); 
-                targetPos = PT.targets[randTargetIndex].transform.position;
+                randTargetIndex = Random.Range(0,PS.ForestGroups.Count -1); 
+                targetPos = PS.ForestGroups[randTargetIndex].transform.position;
             }
             
                      
