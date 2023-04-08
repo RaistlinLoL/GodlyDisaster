@@ -67,6 +67,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Farmer Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 8806145551292872681, guid: 6f1ec9dd1febb2e45b5972f5088e150e, type: 3}
+      propertyPath: m_TagString
+      value: Human
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6f1ec9dd1febb2e45b5972f5088e150e, type: 3}
 --- !u!1 &9071097123361407065 stripped
@@ -116,11 +120,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
+  PS: {fileID: 0}
   maxTimerToFindNewTarget: 3
-  isHuman: 1
-  isLion: 0
-  isChicken: 0
-  isWolf: 0
+  hunger: 1
+  thirst: 0.75
+  oxygenLevel: 0.75
+  woodSupply: 5
+  waterSupply: 0.25
+  consumeMax: 5
+  timerToConsume: 0
+  thirstConsumeRate: 0.05
+  hungerConsumeRate: 0.01
+  oxygenConsumeRate: 0.08
+  woodConsumptionRate: 1
+  whatCreature: 0
 --- !u!114 &1593163462
 MonoBehaviour:
   m_ObjectHideFlags: 0

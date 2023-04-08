@@ -439,11 +439,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 4
+  PS: {fileID: 0}
   maxTimerToFindNewTarget: 0
-  isHuman: 0
-  isLion: 0
-  isChicken: 0
-  isWolf: 0
+  hunger: 1
+  thirst: 0.75
+  oxygenLevel: 0.75
+  woodSupply: 5
+  waterSupply: 0.25
+  consumeMax: 5
+  timerToConsume: 0
+  thirstConsumeRate: 0.05
+  hungerConsumeRate: 0.01
+  oxygenConsumeRate: 0.08
+  woodConsumptionRate: 1
+  whatCreature: 3
 --- !u!114 &4857149354079732634
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -393,7 +393,7 @@ GameObject:
   - component: {fileID: 4507595415695246124}
   m_Layer: 0
   m_Name: Lion
-  m_TagString: Untagged
+  m_TagString: Lion
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -475,7 +475,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 1.29
+  PS: {fileID: 0}
   maxTimerToFindNewTarget: 3
+  hunger: 1
+  thirst: 0.75
+  oxygenLevel: 0.75
+  woodSupply: 5
+  waterSupply: 0.25
+  consumeMax: 5
+  timerToConsume: 0
+  thirstConsumeRate: 0.05
+  hungerConsumeRate: 0.01
+  oxygenConsumeRate: 0.08
+  woodConsumptionRate: 1
+  whatCreature: 1
 --- !u!65 &4507595415695246124
 BoxCollider:
   m_ObjectHideFlags: 0
