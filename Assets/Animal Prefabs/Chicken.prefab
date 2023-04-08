@@ -435,9 +435,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 0
+  targetPos: {x: 0, y: 0, z: 0}
   PS: {fileID: 0}
   maxTimerToFindNewTarget: 3
-  hunger: 1
+  hunger: 0.8
   thirst: 0.75
   oxygenLevel: 0.75
   woodSupply: 5
@@ -449,6 +450,7 @@ MonoBehaviour:
   oxygenConsumeRate: 0.08
   woodConsumptionRate: 1
   whatCreature: 2
+  whatIsState: 0
 --- !u!114 &5127858957018656965
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -472,5 +474,5 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 3.18, y: 1.75, z: 5.03}
+  m_Size: {x: 19.5, y: 3.76, z: 22.67}
   m_Center: {x: 0, y: 0.81, z: 0.18}

@@ -120,9 +120,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
+  targetPos: {x: 0, y: 0, z: 0}
   PS: {fileID: 0}
   maxTimerToFindNewTarget: 3
-  hunger: 1
+  hunger: 0.8
   thirst: 0.75
   oxygenLevel: 0.75
   woodSupply: 5
@@ -134,6 +135,7 @@ MonoBehaviour:
   oxygenConsumeRate: 0.08
   woodConsumptionRate: 1
   whatCreature: 0
+  whatIsState: 0
 --- !u!114 &1593163462
 MonoBehaviour:
   m_ObjectHideFlags: 0
