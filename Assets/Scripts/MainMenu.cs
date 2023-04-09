@@ -5,6 +5,7 @@ using UnityEngine;
 public class MainMenu : MonoBehaviour
 {
     public GameObject MenuUI;
+    public GameObject HowToPlayUI;
     public GameObject LRUI;
     public PowerSelected PS;
     // Start is called before the first frame update
@@ -32,11 +33,18 @@ public class MainMenu : MonoBehaviour
 
     public void HowToPlay()
     {
-
+        MenuUI.gameObject.SetActive(false);
+        HowToPlayUI.gameObject.SetActive(true);
     }
 
     public void QuitGame()
     {
         Application.Quit();
+    }
+
+    public void BackToMainMenu()
+    {
+        MenuUI.gameObject.SetActive(true);
+        HowToPlayUI.gameObject.SetActive(false);
     }
 }
