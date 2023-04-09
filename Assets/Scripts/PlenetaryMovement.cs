@@ -7,7 +7,7 @@ public class PlenetaryMovement : MonoBehaviour
      [SerializeField]
     private float _mouseSensitivity = 3.0f;
     private float _keyboardSensitivity = 1.0f;
-    private bool mouseOrKeyBoard = false;
+    private bool mouseOrKeyBoard = true;
 
     private float _rotationY;
     private float _rotationX;
