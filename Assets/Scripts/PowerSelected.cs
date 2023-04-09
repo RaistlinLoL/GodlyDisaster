@@ -58,6 +58,12 @@ public class PowerSelected : MonoBehaviour
             newestPowerSpawned.transform.LookAt(PlanetCenter.transform.position, transform.up);
             newestPowerSpawned.transform.Rotate(new Vector3(newestPowerSpawned.transform.rotation.x + 90,
                 newestPowerSpawned.transform.rotation.y, newestPowerSpawned.transform.rotation.z));
+
+            Vector3 awayDirection = newestPowerSpawned.transform.position - PlanetCenter.transform.position;
+            awayDirection.Normalize();
+
+            newestPowerSpawned.transform.position += awayDirection * 5;
+
             Destroy(newestPowerSpawned.gameObject, 5f);
         }
     }
