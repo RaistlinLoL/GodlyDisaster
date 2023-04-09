@@ -5,12 +5,12 @@ using UnityEngine.UI;
 
 public class PlanetStatus : MonoBehaviour
 {
-    float HumanCounter = 50;
-    float WaterCounter = 50;
-    float ForestCounter = 50;
-    float AnimalCounter = 50;
-    float AirCounter = 50;
-    float CorruptionCounter = 50;
+    public float HumanCounter = 50;
+    public float WaterCounter = 50;
+    public float ForestCounter = 50;
+    public float AnimalCounter = 50;
+    public float AirCounter = 50;
+    public float CorruptionCounter = 50;
 
     float TotalPlanetHealth;
 
