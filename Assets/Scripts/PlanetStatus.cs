@@ -25,6 +25,8 @@ public class PlanetStatus : MonoBehaviour
 
     public List<GameObject> SliderList;
 
+    Color defaultColor;
+
     public List<GameObject> HumanGroups;
     public List<GameObject> WaterGroups;
     public List<GameObject> ForestGroups;
@@ -36,6 +38,7 @@ public class PlanetStatus : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        defaultColor = HumanSlider.transform.GetChild(0).GetComponentInChildren<Image>().color;
         AddStartingValues();
     }
 
@@ -109,6 +112,10 @@ public class PlanetStatus : MonoBehaviour
             if(s.GetComponent<Slider>().value <= .15f || s.GetComponent<Slider>().value >= .85f)
             {
                 s.transform.GetChild(0).GetComponentInChildren<Image>().color = Color.red;
+            }
+            else
+            {
+                s.transform.GetChild(0).GetComponentInChildren<Image>().color = defaultColor;
             }
         }
         
