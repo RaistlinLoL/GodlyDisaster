@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4615157059304894543}
   - component: {fileID: 4623227133885991779}
   - component: {fileID: 856037157677033813}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: LegBl
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -110,7 +110,7 @@ GameObject:
   - component: {fileID: 4615258962925834067}
   - component: {fileID: 4623133999995652167}
   - component: {fileID: 2048329546923593956}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -207,7 +207,7 @@ GameObject:
   - component: {fileID: 4642049360087807603}
   - component: {fileID: 4615617120271275537}
   - component: {fileID: 4623259433407128287}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Tail
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -291,7 +291,7 @@ GameObject:
   - component: {fileID: 4615981532260783375}
   - component: {fileID: 4623403933850747135}
   - component: {fileID: 2332292993156623427}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: LegFR
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -391,7 +391,7 @@ GameObject:
   - component: {fileID: 2357217126044291257}
   - component: {fileID: 3060782206320185406}
   - component: {fileID: 4507595415695246124}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Lion
   m_TagString: Lion
   m_Icon: {fileID: 0}
@@ -516,7 +516,7 @@ GameObject:
   - component: {fileID: 4615973776328968615}
   - component: {fileID: 4624650203973928579}
   - component: {fileID: 173033527058359293}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Head
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -614,7 +614,7 @@ GameObject:
   - component: {fileID: 4615557794855882653}
   - component: {fileID: 4623145852622885041}
   - component: {fileID: 4723262821700121944}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: LegFL
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -718,7 +718,7 @@ GameObject:
   - component: {fileID: 4615188345806529981}
   - component: {fileID: 4623072236854965015}
   - component: {fileID: 6490348660945240819}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: LegBR
   m_TagString: Untagged
   m_Icon: {fileID: 0}

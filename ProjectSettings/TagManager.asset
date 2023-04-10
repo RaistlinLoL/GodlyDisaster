@@ -14,6 +14,7 @@ TagManager:
   - Lion
   - Human
   - PlanetRocks
+  - Tree
   layers:
   - Default
   - TransparentFX

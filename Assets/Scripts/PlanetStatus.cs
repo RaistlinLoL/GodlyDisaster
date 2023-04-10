@@ -51,30 +51,10 @@ public class PlanetStatus : MonoBehaviour
 
     void AddStartingValues()
     {
-        //Humans
-        foreach (GameObject h in GameObject.FindGameObjectsWithTag("Human"))
-        {
-            HumanGroups.Add(h);
-        }
-
         //Plants
-        foreach (GameObject t in GameObject.FindGameObjectsWithTag("PlanetMoment"))
+        foreach (GameObject t in GameObject.FindGameObjectsWithTag("Tree"))
         {
             ForestGroups.Add(t);
-        }
-
-        //Animals
-        foreach (GameObject a in GameObject.FindGameObjectsWithTag("Chicken"))
-        {
-            AnimalGroups.Add(a);
-        }
-        foreach (GameObject a in GameObject.FindGameObjectsWithTag("Wolf"))
-        {
-            AnimalGroups.Add(a);
-        }
-        foreach (GameObject a in GameObject.FindGameObjectsWithTag("Lion"))
-        {
-            AnimalGroups.Add(a);
         }
     }
 
@@ -87,8 +67,8 @@ public class PlanetStatus : MonoBehaviour
 
     void CheckPlanetHealth()
     {
-        HumanCounter = HumanGroups.Count * 2;
-        ForestCounter = ForestGroups.Count / 20;
+        HumanCounter = HumanGroups.Count * 3;
+        ForestCounter = ForestGroups.Count / 2;
         AnimalCounter = AnimalGroups.Count * 2;
 
         TotalPlanetHealth = (HumanCounter + WaterCounter + ForestCounter +

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4862048158288453895}
   - component: {fileID: 4832394763915326915}
   - component: {fileID: 4845008259802488725}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: LefFR
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -94,7 +94,7 @@ GameObject:
   - component: {fileID: 4861880506735349285}
   - component: {fileID: 4832370113356031781}
   - component: {fileID: 4844180484637414755}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: LegBR
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -177,7 +177,7 @@ GameObject:
   - component: {fileID: 4861721035747261657}
   - component: {fileID: 4836285058253932161}
   - component: {fileID: 4844401498901488373}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Dog
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -260,7 +260,7 @@ GameObject:
   - component: {fileID: 4857114551756151865}
   - component: {fileID: 4836529994970577481}
   - component: {fileID: 4845055082093862167}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: LegBL
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -347,7 +347,7 @@ GameObject:
   - component: {fileID: 4857149354079732635}
   - component: {fileID: 4857149354079732634}
   - component: {fileID: 1077458461696429593}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: wolf
   m_TagString: Wolf
   m_Icon: {fileID: 0}
@@ -491,7 +491,7 @@ GameObject:
   - component: {fileID: 4861646861557224939}
   - component: {fileID: 4836843408451599173}
   - component: {fileID: 4844403693994616499}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -574,7 +574,7 @@ GameObject:
   - component: {fileID: 4856750189346625725}
   - component: {fileID: 4836702797081504743}
   - component: {fileID: 4844281880174124331}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: LegFL
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -657,7 +657,7 @@ GameObject:
   - component: {fileID: 4856824216980044135}
   - component: {fileID: 4836162253891723837}
   - component: {fileID: 4845090933845970027}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Head
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -740,7 +740,7 @@ GameObject:
   - component: {fileID: 4861672006394946867}
   - component: {fileID: 4832439894797582823}
   - component: {fileID: 4844601347486541907}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Tail
   m_TagString: Untagged
   m_Icon: {fileID: 0}
