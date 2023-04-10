@@ -12,7 +12,7 @@ public class PlanetStatus : MonoBehaviour
     public float AirCounter = 50;
     public float CorruptionCounter = 50;
 
-    float TotalPlanetHealth;
+    public float TotalPlanetHealth;
 
     public GameObject HumanSlider;
     public GameObject WaterSlider;
