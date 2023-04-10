@@ -105,14 +105,17 @@ public class PlenetaryMovement : MonoBehaviour
 
     void zoomInAndOut()
     {
+
         Camera cam = GetComponent<Camera>();
         if (Input.mouseScrollDelta.y > 0)
         {
-           cam.fieldOfView += zoomRate;
+            float fov = Mathf.Clamp(cam.fieldOfView + zoomRate,1.5f,90);
+           cam.fieldOfView = fov;
         }
         else if (Input.mouseScrollDelta.y < 0)
         {
-            cam.fieldOfView -= zoomRate;
+            float fov = Mathf.Clamp(cam.fieldOfView - zoomRate, 1.5f, 90);
+            cam.fieldOfView = fov;
         }
        
     }

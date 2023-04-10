@@ -49,6 +49,13 @@ public class HumanBehavior : MonoBehaviour
 
 
     float patrollingTimer;
+
+    List<GameObject> chickens = new List<GameObject>();
+    List<GameObject> wolfs = new List<GameObject>();
+    List<GameObject> Humans = new List<GameObject>();
+    List<GameObject> Lions = new List<GameObject>();
+    bool patrolDoOnce = true;
+    bool findAnimalDoOnce = true;
     /*[SerializeField] bool isHuman;
     
     [SerializeField] bool isLion;
@@ -81,20 +88,36 @@ public class HumanBehavior : MonoBehaviour
         PS = GameObject.Find("PlanetStatus").GetComponent<PlanetStatus>();
 
         isDoingSomething = false;
+
+        for (int i = 0; i < GameObject.FindGameObjectsWithTag("Chicken").Length; i++)
+        {
+            chickens.Add(GameObject.FindGameObjectsWithTag("Chicken")[i]);
+        }
+        for (int i = 0; i < GameObject.FindGameObjectsWithTag("Wolf").Length; i++)
+        {
+            chickens.Add(GameObject.FindGameObjectsWithTag("Wolf")[i]);
+        }
+        for (int i = 0; i < GameObject.FindGameObjectsWithTag("Lion").Length; i++)
+        {
+            chickens.Add(GameObject.FindGameObjectsWithTag("Lion")[i]);
+        }
+        for (int i = 0; i < GameObject.FindGameObjectsWithTag("Human").Length; i++)
+        {
+            chickens.Add(GameObject.FindGameObjectsWithTag("Human")[i]);
+        }
     }
 
+    
     // Update is called once per frame
     void FixedUpdate()
     {
         //Patrolling
         
-
+        
         if (Vector3.Distance(transform.position, targetPos) < 10 && isDoingSomething == false || patrollingTimer >= 10)
         {
-            randTargetIndex = Random.Range(0,PS.ForestGroups.Count -1);
-            targetPos = PS.ForestGroups[randTargetIndex].transform.position;
-            whatIsState = state.paptrolling;
-            patrollingTimer = 0;
+            Patrol();
+
         }
 
         if (whatIsState == state.paptrolling) 
@@ -161,6 +184,15 @@ public class HumanBehavior : MonoBehaviour
 
         }
 
+        findFood();
+
+        // patroll when states are good, will take other things into consideration later
+        if (hunger >= .90 && patrolDoOnce == true)
+        {
+            Patrol();
+            print("is now patrolling");
+            patrolDoOnce = false;
+        }
         
 
     }
@@ -173,7 +205,19 @@ public class HumanBehavior : MonoBehaviour
         transform.LookAt( transform.forward, transform.up);
         
     }
+    private void Patrol()
+    {
+        randTargetIndex = Random.Range(0, PS.ForestGroups.Count - 1);
+        targetPos = PS.ForestGroups[randTargetIndex].transform.position;
+        whatIsState = state.paptrolling;
+        patrollingTimer = 0;
+    }
 
+
+    /// <summary>
+    /// how humans cut down trees
+    /// </summary>
+    /// <param name="tree"></param>
     void cutTreeDown(GameObject tree)
     {
         Destroy(tree);
@@ -181,6 +225,11 @@ public class HumanBehavior : MonoBehaviour
         woodSupply += woodRegenRate;
         print("i cut down a tree");
     }
+    /// <summary>
+    /// how the animals hunt
+    /// </summary>
+    /// <param name="animal"></param>
+    /// <param name="hasCaughtAnimal"></param>
     void huntAnimal(GameObject animal, bool hasCaughtAnimal)
     {
         isDoingSomething = true;
@@ -192,12 +241,75 @@ public class HumanBehavior : MonoBehaviour
             isDoingSomething = false;
             hunger += hungerRegenRate;
             hasCaughtAnimal = false;
+            patrolDoOnce = true;
             print("animal Has been hunted");
         }
         else
         {
             transform.position = Vector3.MoveTowards(transform.position, targetPos, speed * Time.deltaTime);
             transform.LookAt( transform.forward, transform.up);
+        }
+    }
+
+
+    void findFood()
+    {
+        if (hunger <= .75)
+        {
+            //finding an animal
+            if (whatCreature == CreatureType.Human)
+            {
+                int randNum = Random.Range(1, 2);
+                switch (randNum)
+                {
+                    case 1:
+                        huntAnimal(GameObject.FindGameObjectsWithTag("Chicken")[
+                            Random.Range(0, GameObject.FindGameObjectsWithTag("Chicken").Length -1)], hasCaughtAnimal);
+                        break;
+                    case 2:
+                        huntAnimal(GameObject.FindGameObjectsWithTag("Wolf")[
+                           Random.Range(0, GameObject.FindGameObjectsWithTag("Wolf").Length)], hasCaughtAnimal);
+                        break;
+                    default:
+                        print("food not in range");
+                        break;
+                }
+            }
+            else if (whatCreature == CreatureType.Wolf)
+            {
+                huntAnimal(GameObject.FindGameObjectsWithTag("Chicken")[
+                           Random.Range(0, GameObject.FindGameObjectsWithTag("Chicken").Length)], hasCaughtAnimal);
+            }
+            else if (whatCreature == CreatureType.Lion)
+            {
+                int randNum = Random.Range(1,3);
+                switch (randNum)
+                {
+                    case 1:
+                        huntAnimal(GameObject.FindGameObjectsWithTag("Chicken")[
+                            Random.Range(0, GameObject.FindGameObjectsWithTag("Chicken").Length)], hasCaughtAnimal);
+                        break;
+                    case 2:
+                        huntAnimal(GameObject.FindGameObjectsWithTag("Wolf")[
+                           Random.Range(0, GameObject.FindGameObjectsWithTag("Wolf").Length)], hasCaughtAnimal);
+                        break;
+                    case 3:
+                        huntAnimal(GameObject.FindGameObjectsWithTag("Human")[
+                            Random.Range(0, GameObject.FindGameObjectsWithTag("Human").Length)], hasCaughtAnimal);
+                        break;
+                    default:
+                        print("food not in range");
+                        break;
+                }
+            }
+            else if (whatCreature == CreatureType.Chicken)
+            {
+
+            }
+            
+            isDoingSomething = true;
+            transform.position = Vector3.MoveTowards(transform.position, targetPos, speed * Time.deltaTime);
+            transform.LookAt(transform.forward, transform.up);
         }
     }
     private void OnTriggerStay(Collider other) {
