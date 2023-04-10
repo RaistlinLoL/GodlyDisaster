@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5132242276520498981}
   - component: {fileID: 5138981210391759047}
   - component: {fileID: 5150503852301559965}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: LegL
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -94,7 +94,7 @@ GameObject:
   - component: {fileID: 5132053025199483443}
   - component: {fileID: 5142956351145571053}
   - component: {fileID: 5151444798982393787}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -177,7 +177,7 @@ GameObject:
   - component: {fileID: 5132232686771807689}
   - component: {fileID: 5139075120555175549}
   - component: {fileID: 5150794506299002973}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: LegR
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -260,7 +260,7 @@ GameObject:
   - component: {fileID: 5126907025533782527}
   - component: {fileID: 5143008521656373557}
   - component: {fileID: 5150711553941796195}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Head
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -347,7 +347,7 @@ GameObject:
   - component: {fileID: 5127858957018656966}
   - component: {fileID: 5127858957018656965}
   - component: {fileID: 370303086407741620}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Chicken
   m_TagString: Chicken
   m_Icon: {fileID: 0}

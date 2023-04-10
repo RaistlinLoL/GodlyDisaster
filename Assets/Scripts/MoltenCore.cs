@@ -6,6 +6,7 @@ public class MoltenCore : MonoBehaviour
 {
     private void OnCollisionEnter(Collision other)
     {
+        Debug.Log("MOLTEN CORE");
         Destroy(other.gameObject);
     }
 }

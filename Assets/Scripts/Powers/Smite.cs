@@ -14,7 +14,7 @@ public class Smite : MonoBehaviour
     private void OnTriggerEnter(Collider collision)
     {
         //Destroy Plant
-        if (collision.gameObject.tag == "PlanetMoment")
+        if (collision.gameObject.tag == "Tree")
         {
             ChangeCorruption(2);
             Destroy(collision.gameObject);

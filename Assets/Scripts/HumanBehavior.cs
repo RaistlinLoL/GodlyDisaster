@@ -22,7 +22,7 @@ public class HumanBehavior : MonoBehaviour
     [SerializeField]private float oxygenLevel = .75f;
 
     //human specific values
-    [SerializeField]private int woodSupply = 6;
+    [SerializeField]private float woodSupply = 6;
     [SerializeField]private float waterSupply = .25f;
 
 
@@ -35,7 +35,7 @@ public class HumanBehavior : MonoBehaviour
     [SerializeField]private float hungerConsumeRate = .001f;
     [SerializeField]private float oxygenConsumeRate = .08f;
     //human specific consumption rates
-    [SerializeField] private int woodConsumptionRate = 1;
+    [SerializeField] private float woodConsumptionRate = 1;
     
 
     //stat regeneration rate
@@ -43,17 +43,13 @@ public class HumanBehavior : MonoBehaviour
     float hungerRegenRate = 1.0f;
     float oxygenRegenRate = .16f;
     //human specific regen rate
-    int woodRegenRate = 5;
+    float woodRegenRate = 5;
 
     bool isDoingSomething;
 
 
     float patrollingTimer;
 
-    List<GameObject> chickens = new List<GameObject>();
-    List<GameObject> wolfs = new List<GameObject>();
-    List<GameObject> Humans = new List<GameObject>();
-    List<GameObject> Lions = new List<GameObject>();
     bool patrolDoOnce = true;
     bool findAnimalDoOnce = true;
     /*[SerializeField] bool isHuman;
@@ -89,22 +85,21 @@ public class HumanBehavior : MonoBehaviour
 
         isDoingSomething = false;
 
-        for (int i = 0; i < GameObject.FindGameObjectsWithTag("Chicken").Length; i++)
+
+        if (whatCreature == CreatureType.Human)
         {
-            chickens.Add(GameObject.FindGameObjectsWithTag("Chicken")[i]);
+            Transform parentObject = GameObject.Find("Creatures").transform;
+            transform.SetParent(parentObject);
+            PS.HumanGroups.Add(this.gameObject);
         }
-        for (int i = 0; i < GameObject.FindGameObjectsWithTag("Wolf").Length; i++)
+        else
         {
-            chickens.Add(GameObject.FindGameObjectsWithTag("Wolf")[i]);
+            Transform parentObject = GameObject.Find("Creatures").transform;
+            transform.SetParent(parentObject);
+            PS.AnimalGroups.Add(this.gameObject);
         }
-        for (int i = 0; i < GameObject.FindGameObjectsWithTag("Lion").Length; i++)
-        {
-            chickens.Add(GameObject.FindGameObjectsWithTag("Lion")[i]);
-        }
-        for (int i = 0; i < GameObject.FindGameObjectsWithTag("Human").Length; i++)
-        {
-            chickens.Add(GameObject.FindGameObjectsWithTag("Human")[i]);
-        }
+        
+        
     }
 
     
@@ -314,7 +309,7 @@ public class HumanBehavior : MonoBehaviour
     }
     private void OnTriggerStay(Collider other) {
        
-        if (other.gameObject.tag == "PlanetMoment")
+        if (other.gameObject.tag == "Tree")
         {
             if (Vector3.Distance(other.gameObject.transform.position, transform.position) < 5)
             {
