@@ -60,7 +60,7 @@ public class Love : MonoBehaviour
         }
     }
 
-    void UniversalChanges(int i)
+    void UniversalChanges(float i)
     {
         createdEntities++;
 
