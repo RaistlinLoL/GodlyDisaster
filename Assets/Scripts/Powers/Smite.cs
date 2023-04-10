@@ -11,12 +11,6 @@ public class Smite : MonoBehaviour
         PS = GameObject.Find("PlanetStatus").GetComponent<PlanetStatus>();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     private void OnTriggerEnter(Collider collision)
     {
         //Destroy Plant
