@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 3134795282745482277}
   - component: {fileID: 3041854524660262254}
   - component: {fileID: 288768958005234655}
+  - component: {fileID: 4235855474078783719}
   m_Layer: 0
   m_Name: LovePrefab
   m_TagString: Untagged
@@ -115,3 +116,15 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &4235855474078783719
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1432737154994779414}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 71269c3dd5881964d81aba2925954442, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
