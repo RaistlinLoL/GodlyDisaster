@@ -485,9 +485,9 @@ MonoBehaviour:
   waterSupply: 0.25
   consumeMax: 5
   timerToConsume: 0
-  thirstConsumeRate: 0.05
+  thirstConsumeRate: 0.1
   hungerConsumeRate: 0.01
-  oxygenConsumeRate: 0.08
+  oxygenConsumeRate: 0.1
   woodConsumptionRate: 1
   whatCreature: 1
   whatIsState: 0
