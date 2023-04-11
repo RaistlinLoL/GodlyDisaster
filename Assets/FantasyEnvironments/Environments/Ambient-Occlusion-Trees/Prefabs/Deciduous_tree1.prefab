@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 2795318547080567644}
   - component: {fileID: 2795318547081664924}
   - component: {fileID: 6945451009273880201}
+  - component: {fileID: 347184524592364258}
   m_Layer: 7
   m_Name: Deciduous_tree1
   m_TagString: Untagged
@@ -99,3 +100,18 @@ CapsuleCollider:
   m_Height: 6.5
   m_Direction: 1
   m_Center: {x: 0.19, y: 1.53, z: 0.15}
+--- !u!114 &347184524592364258
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2795318547083921244}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb69fe78da65cf844a943903d88f13e0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PS: {fileID: 0}
+  airToReproduce: 0.025
+  airProductionTimer: 5

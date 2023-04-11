@@ -142,12 +142,12 @@ public class HumanBehavior : MonoBehaviour
                 //if thirst hits 0 get hungrier faster
                 if (thirst <= 0)
                 {
-                    //hunger -= hungerConsumeRate;
+                    hunger -= hungerConsumeRate;
                 }
                 //else decreas thirst when out of water
                 else if (waterSupply <= 0)
                 {
-                    //thirst -= thirstConsumeRate;
+                    thirst -= thirstConsumeRate;
                 }
                 oxygenLevel -= oxygenConsumeRate;
                 woodSupply -= woodConsumptionRate;
@@ -165,12 +165,12 @@ public class HumanBehavior : MonoBehaviour
                 //if thirst hits 0 it gets hungry faster
                 if (thirst <= 0)
                 {
-                    //hunger -= hungerConsumeRate;
+                    hunger -= hungerConsumeRate;
                 }
                 //else decrease thirst
                 else
                 {
-                    //thirst -= thirstConsumeRate;
+                    thirst -= thirstConsumeRate;
                 }
                 
                 oxygenLevel -= oxygenConsumeRate;
@@ -179,8 +179,32 @@ public class HumanBehavior : MonoBehaviour
 
         }
 
+        //replenishing resouces
         findFood();
-
+        if (oxygenLevel <= .75f)
+        {
+            // consume oxygen from the world supply
+            if (PS.AirCounter > 0)
+            {
+                PS.AirCounter -= .2f;
+                oxygenLevel = 1;
+            }
+            
+        }
+        if (oxygenLevel <= 0)
+        {
+            Destroy(this.gameObject);
+        }
+        if (thirst <= .60)
+        {
+            //consume water from the world supply
+            if (PS.WaterCounter > 0)
+            {
+                PS.WaterCounter -= .2f;
+                thirst = 1;
+            }
+           
+        }
         // patroll when states are good, will take other things into consideration later
         if (hunger >= .90 && patrolDoOnce == true)
         {
