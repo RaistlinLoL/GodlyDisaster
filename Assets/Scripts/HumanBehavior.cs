@@ -67,7 +67,7 @@ public class HumanBehavior : MonoBehaviour
     }
     [SerializeField] CreatureType whatCreature;
     
-    bool hasCaughtAnimal;
+    bool hasAnCaughtAnimal;
 
     enum state
     {
@@ -249,17 +249,17 @@ public class HumanBehavior : MonoBehaviour
     /// </summary>
     /// <param name="animal"></param>
     /// <param name="hasCaughtAnimal"></param>
-    void huntAnimal(GameObject animal, bool hasCaughtAnimal)
+    void huntAnimal(GameObject animal)
     {
         isDoingSomething = true;
         targetPos = animal.transform.position;
         whatIsState = state.hunting;
-        if (hasCaughtAnimal)
+        if (hasAnCaughtAnimal)
         {
             Destroy(animal);
             isDoingSomething = false;
             hunger += hungerRegenRate;
-            hasCaughtAnimal = false;
+            hasAnCaughtAnimal = false;
             patrolDoOnce = true;
             print("animal Has been hunted");
         }
@@ -283,11 +283,11 @@ public class HumanBehavior : MonoBehaviour
                 {
                     case 1:
                         huntAnimal(GameObject.FindGameObjectsWithTag("Chicken")[
-                            Random.Range(0, GameObject.FindGameObjectsWithTag("Chicken").Length -1)], hasCaughtAnimal);
+                            Random.Range(0, GameObject.FindGameObjectsWithTag("Chicken").Length -1)]);
                         break;
                     case 2:
                         huntAnimal(GameObject.FindGameObjectsWithTag("Wolf")[
-                           Random.Range(0, GameObject.FindGameObjectsWithTag("Wolf").Length)], hasCaughtAnimal);
+                           Random.Range(0, GameObject.FindGameObjectsWithTag("Wolf").Length)]);
                         break;
                     default:
                         print("food not in range");
@@ -297,7 +297,7 @@ public class HumanBehavior : MonoBehaviour
             else if (whatCreature == CreatureType.Wolf)
             {
                 huntAnimal(GameObject.FindGameObjectsWithTag("Chicken")[
-                           Random.Range(0, GameObject.FindGameObjectsWithTag("Chicken").Length)], hasCaughtAnimal);
+                           Random.Range(0, GameObject.FindGameObjectsWithTag("Chicken").Length)]);
             }
             else if (whatCreature == CreatureType.Lion)
             {
@@ -306,15 +306,15 @@ public class HumanBehavior : MonoBehaviour
                 {
                     case 1:
                         huntAnimal(GameObject.FindGameObjectsWithTag("Chicken")[
-                            Random.Range(0, GameObject.FindGameObjectsWithTag("Chicken").Length)], hasCaughtAnimal);
+                            Random.Range(0, GameObject.FindGameObjectsWithTag("Chicken").Length)]);
                         break;
                     case 2:
                         huntAnimal(GameObject.FindGameObjectsWithTag("Wolf")[
-                           Random.Range(0, GameObject.FindGameObjectsWithTag("Wolf").Length)], hasCaughtAnimal);
+                           Random.Range(0, GameObject.FindGameObjectsWithTag("Wolf").Length)]);
                         break;
                     case 3:
                         huntAnimal(GameObject.FindGameObjectsWithTag("Human")[
-                            Random.Range(0, GameObject.FindGameObjectsWithTag("Human").Length)], hasCaughtAnimal);
+                            Random.Range(0, GameObject.FindGameObjectsWithTag("Human").Length)]);
                         break;
                     default:
                         print("food not in range");
@@ -325,10 +325,7 @@ public class HumanBehavior : MonoBehaviour
             {
 
             }
-            
-            isDoingSomething = true;
-            transform.position = Vector3.MoveTowards(transform.position, targetPos, speed * Time.deltaTime);
-            transform.LookAt(transform.forward, transform.up);
+           
         }
     }
     private void OnTriggerStay(Collider other) {
@@ -350,10 +347,10 @@ public class HumanBehavior : MonoBehaviour
     {
         if (other.gameObject.tag == "Chicken" || other.gameObject.tag == "Wolf" || other.gameObject.tag == "Lion" || other.gameObject.tag == "human")
         {
-            if (other.gameObject.transform.position == targetPos)
+            if (Vector3.Distance(other.gameObject.transform.position,targetPos)  <= 5)
             {
                 //cought the animal you are chasing
-                hasCaughtAnimal = true;
+                hasAnCaughtAnimal = true;
             }
            
         }
@@ -361,15 +358,15 @@ public class HumanBehavior : MonoBehaviour
     private void OnTriggerEnter(Collider other) {
         if (whatCreature == CreatureType.Human)
         {
-            if (other.gameObject.tag == "Chicken" || other.gameObject.tag == "Wolf" || other.gameObject.layer == 8)
-            {
-                if (hunger <= .75f)
-                {
-                    huntAnimal(other.gameObject, hasCaughtAnimal);
-                    print("iam hunting an animal");
-                }
-               
-            }
+//             if (other.gameObject.tag == "Chicken" || other.gameObject.tag == "Wolf" || other.gameObject.layer == 8)
+//             {
+//                 if (hunger <= .75f)
+//                 {
+//                     huntAnimal(other.gameObject, hasCaughtAnimal);
+//                     print("iam hunting an animal");
+//                 }
+//                
+//             }
 
             if (other.gameObject.layer == 7)
             {
@@ -390,42 +387,42 @@ public class HumanBehavior : MonoBehaviour
 
         }
 
-        if (whatCreature == CreatureType.Lion)
-        {
-            if (hunger <= .75f)
-            {
-                if (other.gameObject.tag == "Chicken" || other.gameObject.tag == "Wolf" || other.gameObject.tag == "Human")
-                {
-                    huntAnimal(other.gameObject, hasCaughtAnimal);
-                    print("lion is hunting something");
-                }
-            }
-            
-        }
+//         if (whatCreature == CreatureType.Lion)
+//         {
+//             if (hunger <= .75f)
+//             {
+//                 if (other.gameObject.tag == "Chicken" || other.gameObject.tag == "Wolf" || other.gameObject.tag == "Human")
+//                 {
+//                     huntAnimal(other.gameObject, hasCaughtAnimal);
+//                     print("lion is hunting something");
+//                 }
+//             }
+//             
+//         }
 
-        if (whatCreature == CreatureType.Wolf)
-        {
-            if (hunger <= .75f)
-            {
-                if (other.gameObject.tag == "Chicken" )
-                {
-                    huntAnimal(other.gameObject, hasCaughtAnimal);
-                    print("wolf has hunted something");
-                }
-            }
-        }
+//         if (whatCreature == CreatureType.Wolf)
+//         {
+//             if (hunger <= .75f)
+//             {
+//                 if (other.gameObject.tag == "Chicken" )
+//                 {
+//                     huntAnimal(other.gameObject, hasCaughtAnimal);
+//                     print("wolf has hunted something");
+//                 }
+//             }
+//         }
 
-        if (whatCreature == CreatureType.Chicken)
-        {
-            if (other.gameObject.layer == 8)
-            {
-                if (other.gameObject.tag == "Grass")
-                {
-                    huntAnimal(other.gameObject, hasCaughtAnimal);
-                    print("chicken has hunted food");
-                }
-            }
-        }
+//         if (whatCreature == CreatureType.Chicken)
+//         {
+//             if (other.gameObject.layer == 8)
+//             {
+//                 if (other.gameObject.tag == "Grass")
+//                 {
+//                     huntAnimal(other.gameObject, hasCaughtAnimal);
+//                     print("chicken has hunted food");
+//                 }
+//             }
+//         }
         
         
 
