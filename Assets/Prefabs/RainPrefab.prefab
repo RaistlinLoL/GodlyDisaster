@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 7554624064962598768}
   - component: {fileID: -4116195728388032063}
   - component: {fileID: -8543889736410052094}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: RainPrefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}

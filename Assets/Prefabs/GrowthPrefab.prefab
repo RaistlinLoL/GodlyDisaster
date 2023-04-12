@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 6723855790765688387}
   - component: {fileID: 8320629504532752626}
   - component: {fileID: 8816916800367309844}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: GrowthPrefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -132,3 +132,7 @@ MonoBehaviour:
   Tree2: {fileID: 1216688828669844, guid: d0fef57aa8c0772448a3a57390d3c153, type: 3}
   Tree3: {fileID: 2795318547083921244, guid: dc20bf501e8161b40859eb66568d49f6, type: 3}
   Tree4: {fileID: 1243781198178196, guid: 783807170dc366141aaaeb44eec96c04, type: 3}
+  CreatedTree: {fileID: 0}
+  TreeParent: {fileID: 0}
+  MP: {fileID: 0}
+  PS: {fileID: 0}
