@@ -22,6 +22,8 @@ public class PowerSelected : MonoBehaviour
 
     public GameObject PlanetCenter;
 
+    bool PowersOnCooldown = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -31,7 +33,7 @@ public class PowerSelected : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetMouseButtonDown(0) && MousePos.OnPlanet)
+        if(Input.GetMouseButtonDown(0) && MousePos.OnPlanet && !PowersOnCooldown)
         {
             Debug.Log("Power Used");
             GameObject newestPowerSpawned;
@@ -64,6 +66,8 @@ public class PowerSelected : MonoBehaviour
 
             newestPowerSpawned.transform.position += awayDirection * 5;
 
+            PowersOnCooldown = true;
+            Invoke("ResetCoolDown", 2);
             Destroy(newestPowerSpawned.gameObject, 5f);
         }
     }
@@ -83,5 +87,10 @@ public class PowerSelected : MonoBehaviour
     public void SelectLove()
     {
         currentpower = powers.Love;
+    }
+    
+    void ResetCoolDown()
+    {
+        PowersOnCooldown = false;
     }
 }

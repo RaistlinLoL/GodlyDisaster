@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 2709813286371911019}
   - component: {fileID: 841064372046466010}
   - component: {fileID: 6257330794061901091}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: SmitePrefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}

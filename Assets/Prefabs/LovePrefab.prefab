@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 3041854524660262254}
   - component: {fileID: 288768958005234655}
   - component: {fileID: 4235855474078783719}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: LovePrefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -128,3 +128,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71269c3dd5881964d81aba2925954442, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  PS: {fileID: 0}
