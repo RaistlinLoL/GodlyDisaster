@@ -28,10 +28,8 @@ public class PlanetStatus : MonoBehaviour
     Color defaultColor;
 
     public List<GameObject> HumanGroups;
-    public List<GameObject> WaterGroups;
     public List<GameObject> ForestGroups;
     public List<GameObject> AnimalGroups;
-    public List<GameObject> AirGroups;
 
     
 
@@ -68,7 +66,7 @@ public class PlanetStatus : MonoBehaviour
     void CheckPlanetHealth()
     {
         HumanCounter = HumanGroups.Count * 3;
-        ForestCounter = ForestGroups.Count / 2;
+        ForestCounter = ForestGroups.Count / 1.5f;
         AnimalCounter = AnimalGroups.Count * 2;
 
         TotalPlanetHealth = (HumanCounter + WaterCounter + ForestCounter +
@@ -92,6 +90,10 @@ public class PlanetStatus : MonoBehaviour
             if(s.GetComponent<Slider>().value <= .15f || s.GetComponent<Slider>().value >= .85f)
             {
                 s.transform.GetChild(0).GetComponentInChildren<Image>().color = Color.red;
+            }
+            else if(s.GetComponent<Slider>().value <= .25f || s.GetComponent<Slider>().value >= .75f)
+            {
+                s.transform.GetChild(0).GetComponentInChildren<Image>().color = Color.yellow;
             }
             else
             {
