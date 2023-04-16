@@ -66,8 +66,18 @@ public class PowerSelected : MonoBehaviour
 
             newestPowerSpawned.transform.position += awayDirection * 5;
 
-            PowersOnCooldown = true;
-            Invoke("ResetCoolDown", 2);
+            /*
+            if(newestPowerSpawned == GrowthPower)
+            {
+                newestPowerSpawned.transform.position += awayDirection * 10;
+                Debug.Log("Growth");
+            }
+            */
+
+
+            //UNCOMMENT THIS TO ADD COOLDOWN TO POWERS
+            //PowersOnCooldown = true;
+            //Invoke("ResetCoolDown", 2);
             Destroy(newestPowerSpawned.gameObject, 5f);
         }
     }
