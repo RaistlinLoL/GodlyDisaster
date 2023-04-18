@@ -4,9 +4,11 @@ using UnityEngine;
 
 public class MoltenCore : MonoBehaviour
 {
+
+    [SerializeField] Transform reserectPoint;
     private void OnCollisionEnter(Collision other)
     {
         Debug.Log("MOLTEN CORE");
-        Destroy(other.gameObject);
+        other.gameObject.transform.position = reserectPoint.position;
     }
 }
