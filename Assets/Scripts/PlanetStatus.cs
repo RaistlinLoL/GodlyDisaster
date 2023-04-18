@@ -80,7 +80,7 @@ public class PlanetStatus : MonoBehaviour
     {
         HumanSlider.GetComponent<Slider>().value = HumanCounter/100;
         WaterSlider.GetComponent<Slider>().value = WaterCounter/100;
-        ForestSlider.GetComponent<Slider>().value = ForestCounter/100;
+        ForestSlider.GetComponent<Slider>().value = ForestCounter/200;
         AnimalSlider.GetComponent<Slider>().value = AnimalCounter/100;
         AirSlider.GetComponent<Slider>().value = AirCounter/100;
         CorruptionSlider.GetComponent<Slider>().value = CorruptionCounter/100;
