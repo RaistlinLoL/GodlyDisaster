@@ -16,27 +16,43 @@ public class Growth : MonoBehaviour
 
     public MousePosition MP;
     public PlanetStatus PS;
+
+    bool canPlaceTree = true;
     // Start is called before the first frame update
     void Start()
     {
         MP = GameObject.Find("MouseDot").GetComponent<MousePosition>();
-        TreeParent = GameObject.Find("Plants").transform;
+        TreeParent = GameObject.Find("Trees").transform;
         PS = GameObject.Find("PlanetStatus").GetComponent<PlanetStatus>();
 
+        StartCoroutine(GrowCooldown());
+    }
+
+    private void FixedUpdate()
+    {
+        if (canPlaceTree)
+        {
+            PlaceTree();
+        }
+    }
+
+    void PlaceTree()
+    {
+        canPlaceTree = false;
         rngTree = Random.Range(1, 5);
-        if(rngTree == 1)
+        if (rngTree == 1)
         {
             CreatedTree = Instantiate(Tree1, MP.transform.position, Quaternion.identity);
         }
-        if(rngTree == 2)
+        if (rngTree == 2)
         {
             CreatedTree = Instantiate(Tree2, MP.transform.position, Quaternion.identity);
         }
-        if(rngTree == 3)
+        if (rngTree == 3)
         {
             CreatedTree = Instantiate(Tree3, MP.transform.position, Quaternion.identity);
         }
-        if(rngTree == 4)
+        if (rngTree == 4)
         {
             CreatedTree = Instantiate(Tree4, MP.transform.position, Quaternion.identity);
         }
@@ -45,6 +61,16 @@ public class Growth : MonoBehaviour
         PS.ForestGroups.Add(CreatedTree);
 
         ChangeCorruption(1);
+    }
+
+    IEnumerator GrowCooldown()
+    {
+
+        while (true)
+        {
+            canPlaceTree = true;
+            yield return new WaitForSeconds(1);
+        }
     }
 
     void ChangeCorruption(float i)
