@@ -24,6 +24,8 @@ public class PowerSelected : MonoBehaviour
 
     bool PowersOnCooldown = false;
 
+    GameObject newestPowerSpawned;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -35,8 +37,7 @@ public class PowerSelected : MonoBehaviour
     {
         if(Input.GetMouseButtonDown(0) && MousePos.OnPlanet && !PowersOnCooldown)
         {
-            Debug.Log("Power Used");
-            GameObject newestPowerSpawned;
+            
             if(currentpower == powers.Rain)
             {
                 newestPowerSpawned = Instantiate(RainPower, MousePos.transform.position , Quaternion.identity);
@@ -57,29 +58,36 @@ public class PowerSelected : MonoBehaviour
             {
                 newestPowerSpawned = null;
             }
-            newestPowerSpawned.transform.LookAt(PlanetCenter.transform.position, transform.up);
-            newestPowerSpawned.transform.Rotate(new Vector3(newestPowerSpawned.transform.rotation.x - 90,
-                newestPowerSpawned.transform.rotation.y, newestPowerSpawned.transform.rotation.z));
 
-            Vector3 awayDirection = newestPowerSpawned.transform.position - PlanetCenter.transform.position;
-            awayDirection.Normalize();
+            SetPowerPosition();
+            
 
-            newestPowerSpawned.transform.position += awayDirection * 5;
-
-            /*
-            if(newestPowerSpawned == GrowthPower)
-            {
-                newestPowerSpawned.transform.position += awayDirection * 10;
-                Debug.Log("Growth");
-            }
-            */
-
-
-            //UNCOMMENT THIS TO ADD COOLDOWN TO POWERS
-            //PowersOnCooldown = true;
-            //Invoke("ResetCoolDown", 2);
-            Destroy(newestPowerSpawned.gameObject, 5f);
+            //Destroy(newestPowerSpawned.gameObject, 5f);
         }
+
+        if(Input.GetMouseButton(0) && newestPowerSpawned != null)
+        {
+            SetPowerPosition();
+        }
+
+        if(Input.GetMouseButtonUp(0) && newestPowerSpawned != null)
+        {
+            Destroy(newestPowerSpawned.gameObject);
+        }
+    }
+
+    void SetPowerPosition()
+    {
+        newestPowerSpawned.transform.position = MousePos.transform.position;
+
+        newestPowerSpawned.transform.LookAt(PlanetCenter.transform.position, transform.up);
+        newestPowerSpawned.transform.Rotate(new Vector3(newestPowerSpawned.transform.rotation.x - 90,
+            newestPowerSpawned.transform.rotation.y, newestPowerSpawned.transform.rotation.z));
+
+        Vector3 awayDirection = newestPowerSpawned.transform.position - PlanetCenter.transform.position;
+        awayDirection.Normalize();
+
+        newestPowerSpawned.transform.position += awayDirection * 5;
     }
 
     public void SelectRain()
