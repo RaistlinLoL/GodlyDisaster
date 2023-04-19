@@ -7,18 +7,22 @@ public class Love : MonoBehaviour
     public PlanetStatus PS;
     int createdEntities = 0;
 
+    bool loveActive = true;
+
     // Start is called before the first frame update
     void Start()
     {
         PS = GameObject.Find("PlanetStatus").GetComponent<PlanetStatus>();
+        StartCoroutine(LoveCooldown());
     }
 
     private void OnTriggerEnter(Collider collision)
     {
         if((collision.gameObject.tag == "Human"|| collision.gameObject.tag == "Lion" 
             || collision.gameObject.tag == "Chicken" || collision.gameObject.tag == "Wolf") 
-            && createdEntities < 3)
+            && createdEntities < 2 && loveActive)
         {
+            loveActive = false;
             Instantiate(collision.gameObject, collision.transform.position, Quaternion.identity);
 
             createdEntities++;
@@ -28,6 +32,16 @@ public class Love : MonoBehaviour
             {
                 PS.CorruptionCounter = 0;
             }
+        }
+    }
+
+    IEnumerator LoveCooldown()
+    {
+        while (true)
+        {
+            createdEntities = 0;
+            loveActive = true;
+            yield return new WaitForSeconds(1);
         }
     }
 }
