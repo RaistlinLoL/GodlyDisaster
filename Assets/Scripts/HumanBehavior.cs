@@ -283,7 +283,7 @@ public class HumanBehavior : MonoBehaviour
                 {
                     case 1:
                         huntAnimal(GameObject.FindGameObjectsWithTag("Chicken")[
-                            Random.Range(0, GameObject.FindGameObjectsWithTag("Chicken").Length -1)]);
+                            Random.Range(0, GameObject.FindGameObjectsWithTag("Chicken").Length)]);
                         break;
                     case 2:
                         huntAnimal(GameObject.FindGameObjectsWithTag("Wolf")[
