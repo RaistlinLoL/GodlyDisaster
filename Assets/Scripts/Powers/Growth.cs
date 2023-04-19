@@ -22,10 +22,10 @@ public class Growth : MonoBehaviour
     void Start()
     {
         MP = GameObject.Find("MouseDot").GetComponent<MousePosition>();
-        TreeParent = GameObject.Find("Plants").transform;
+        TreeParent = GameObject.Find("Trees").transform;
         PS = GameObject.Find("PlanetStatus").GetComponent<PlanetStatus>();
 
-        
+        StartCoroutine(GrowCooldown());
     }
 
     private void FixedUpdate()
@@ -69,7 +69,7 @@ public class Growth : MonoBehaviour
         while (true)
         {
             canPlaceTree = true;
-            yield return new WaitForSeconds(2);
+            yield return new WaitForSeconds(1);
         }
     }
 
