@@ -66,7 +66,7 @@ public class PlanetStatus : MonoBehaviour
     void CheckPlanetHealth()
     {
         HumanCounter = HumanGroups.Count * 3;
-        ForestCounter = ForestGroups.Count / 1.5f;
+        ForestCounter = ForestGroups.Count / 2f;
         AnimalCounter = AnimalGroups.Count * 2;
 
         TotalPlanetHealth = (HumanCounter + WaterCounter + ForestCounter +
@@ -78,7 +78,7 @@ public class PlanetStatus : MonoBehaviour
     {
         HumanSlider.GetComponent<Slider>().value = HumanCounter/100;
         WaterSlider.GetComponent<Slider>().value = WaterCounter/100;
-        ForestSlider.GetComponent<Slider>().value = ForestCounter/200;
+        ForestSlider.GetComponent<Slider>().value = ForestCounter/100;
         AnimalSlider.GetComponent<Slider>().value = AnimalCounter/100;
         AirSlider.GetComponent<Slider>().value = AirCounter/100;
         CorruptionSlider.GetComponent<Slider>().value = CorruptionCounter/100;
