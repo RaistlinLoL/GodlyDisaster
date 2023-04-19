@@ -10,15 +10,14 @@ public class Rain : MonoBehaviour
     {
         PS = GameObject.Find("PlanetStatus").GetComponent<PlanetStatus>();
 
-        PS.WaterCounter += 10;
+    }
+
+    private void FixedUpdate()
+    {
+        PS.WaterCounter += .1f;
         if (PS.WaterCounter > 100)
         {
             PS.WaterCounter = 100;
         }
-    }
-
-    private void OnTriggerEnter(Collider collision)
-    {
-
     }
 }
