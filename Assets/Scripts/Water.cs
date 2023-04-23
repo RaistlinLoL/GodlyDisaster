@@ -19,7 +19,7 @@ public class Water : MonoBehaviour
     {
         transform.eulerAngles += new Vector3(2, 2, 2) * Time.deltaTime;
 
-        currentWaterLevel = startingWaterLevel + (PS.WaterCounter / 4000);
+        currentWaterLevel = startingWaterLevel + (PS.WaterCounter / 2000);
         transform.localScale = new Vector3(currentWaterLevel, currentWaterLevel, currentWaterLevel);
     }
 }

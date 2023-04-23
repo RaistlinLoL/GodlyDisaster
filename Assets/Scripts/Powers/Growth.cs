@@ -38,29 +38,36 @@ public class Growth : MonoBehaviour
 
     void PlaceTree()
     {
-        canPlaceTree = false;
-        rngTree = Random.Range(1, 5);
-        if (rngTree == 1)
+        if(MP.rayHit.collider.gameObject.tag != "Tree")
         {
-            CreatedTree = Instantiate(Tree1, MP.transform.position, Quaternion.identity);
-        }
-        if (rngTree == 2)
-        {
-            CreatedTree = Instantiate(Tree2, MP.transform.position, Quaternion.identity);
-        }
-        if (rngTree == 3)
-        {
-            CreatedTree = Instantiate(Tree3, MP.transform.position, Quaternion.identity);
-        }
-        if (rngTree == 4)
-        {
-            CreatedTree = Instantiate(Tree4, MP.transform.position, Quaternion.identity);
-        }
-        CreatedTree.transform.rotation = transform.rotation;
-        CreatedTree.transform.SetParent(TreeParent);
-        PS.ForestGroups.Add(CreatedTree);
+            canPlaceTree = false;
 
-        ChangeCorruption(1);
+            rngTree = Random.Range(1, 5);
+            if (rngTree == 1)
+            {
+                CreatedTree = Instantiate(Tree1, MP.transform.position, Quaternion.identity);
+            }
+            if (rngTree == 2)
+            {
+                CreatedTree = Instantiate(Tree2, MP.transform.position, Quaternion.identity);
+            }
+            if (rngTree == 3)
+            {
+                CreatedTree = Instantiate(Tree3, MP.transform.position, Quaternion.identity);
+            }
+            if (rngTree == 4)
+            {
+                CreatedTree = Instantiate(Tree4, MP.transform.position, Quaternion.identity);
+            }
+            CreatedTree.tag = "Tree";
+
+            CreatedTree.transform.rotation = transform.rotation;
+            CreatedTree.transform.SetParent(TreeParent);
+            PS.ForestGroups.Add(CreatedTree);
+
+            ChangeCorruption(1);
+        }
+        
     }
 
     IEnumerator GrowCooldown()
@@ -69,7 +76,7 @@ public class Growth : MonoBehaviour
         while (true)
         {
             canPlaceTree = true;
-            yield return new WaitForSeconds(1);
+            yield return new WaitForSeconds(.5f);
         }
     }
 
