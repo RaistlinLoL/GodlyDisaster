@@ -7,6 +7,7 @@ public class MousePosition : MonoBehaviour
     public Camera mainCam;
     public LayerMask PlanetLayer;
     public bool OnPlanet;
+    public RaycastHit rayHit;
     // Start is called before the first frame update
     void Start()
     {
@@ -17,7 +18,7 @@ public class MousePosition : MonoBehaviour
     void Update()
     {
         Ray rayToMouse = mainCam.ScreenPointToRay(Input.mousePosition);
-        if(Physics.Raycast(rayToMouse, out RaycastHit rayHit))
+        if(Physics.Raycast(rayToMouse, out rayHit))
         {
             GetComponent<MeshRenderer>().enabled = true;
             transform.position = rayHit.point;

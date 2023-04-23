@@ -16,7 +16,7 @@ public class Love : MonoBehaviour
         StartCoroutine(LoveCooldown());
     }
 
-    private void OnTriggerEnter(Collider collision)
+    private void OnTriggerStay(Collider collision)
     {
         if((collision.gameObject.tag == "Human"|| collision.gameObject.tag == "Lion" 
             || collision.gameObject.tag == "Chicken" || collision.gameObject.tag == "Wolf") 
