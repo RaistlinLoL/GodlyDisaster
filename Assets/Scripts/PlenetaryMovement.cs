@@ -29,6 +29,8 @@ public class PlenetaryMovement : MonoBehaviour
 
     [SerializeField]int zoomRate;
 
+    public MainMenu MM;
+
     void Start()
     {
         //hideCursor();
@@ -67,6 +69,7 @@ public class PlenetaryMovement : MonoBehaviour
 
     void MouseMovement()
     {
+        
         float mouseX = Input.GetAxis("Mouse X") * _mouseSensitivity;
         float mouseY = -Input.GetAxis("Mouse Y") * _mouseSensitivity;
 
@@ -105,17 +108,19 @@ public class PlenetaryMovement : MonoBehaviour
 
     void zoomInAndOut()
     {
-
-        Camera cam = GetComponent<Camera>();
-        if (Input.mouseScrollDelta.y > 0)
+        if (MM.GameStarted)
         {
-            float fov = Mathf.Clamp(cam.fieldOfView + zoomRate,9.5f,90);
-           cam.fieldOfView = fov;
-        }
-        else if (Input.mouseScrollDelta.y < 0)
-        {
-            float fov = Mathf.Clamp(cam.fieldOfView - zoomRate, 9.5f, 90);
-            cam.fieldOfView = fov;
+            Camera cam = GetComponent<Camera>();
+            if (Input.mouseScrollDelta.y > 0)
+            {
+                float fov = Mathf.Clamp(cam.fieldOfView + zoomRate, 9.5f, 90);
+                cam.fieldOfView = fov;
+            }
+            else if (Input.mouseScrollDelta.y < 0)
+            {
+                float fov = Mathf.Clamp(cam.fieldOfView - zoomRate, 9.5f, 90);
+                cam.fieldOfView = fov;
+            }
         }
        
     }

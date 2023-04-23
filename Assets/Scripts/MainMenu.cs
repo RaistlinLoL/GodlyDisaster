@@ -8,6 +8,7 @@ public class MainMenu : MonoBehaviour
     public GameObject HowToPlayUI;
     public GameObject LRUI;
     public PowerSelected PS;
+    public bool GameStarted = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -23,6 +24,8 @@ public class MainMenu : MonoBehaviour
 
     public void BeginGame()
     {
+        GameStarted = true;
+
         Time.timeScale = 1;
 
         LRUI.gameObject.SetActive(true);
