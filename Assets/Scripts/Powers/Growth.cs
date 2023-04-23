@@ -38,7 +38,7 @@ public class Growth : MonoBehaviour
 
     void PlaceTree()
     {
-        if(MP.rayHit.collider.gameObject.tag == "Planet")
+        if(MP.rayHit.collider.gameObject.tag != "Tree")
         {
             canPlaceTree = false;
 
