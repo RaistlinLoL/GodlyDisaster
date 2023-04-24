@@ -17,9 +17,11 @@ public class Water : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        transform.eulerAngles += new Vector3(2, 2, 2) * Time.deltaTime;
+        //transform.eulerAngles += new Vector3(3, 3, 3) * Time.deltaTime;
+        transform.Rotate(new Vector3(3, 3, 3) * Time.deltaTime);
 
         currentWaterLevel = startingWaterLevel + (PS.WaterCounter / 2000);
         transform.localScale = new Vector3(currentWaterLevel, currentWaterLevel, currentWaterLevel);
+
     }
 }
